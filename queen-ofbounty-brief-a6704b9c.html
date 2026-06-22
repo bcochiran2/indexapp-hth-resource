@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 日常对照与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1e2a33;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区 */
+        .hero {
+            background: linear-gradient(145deg, #e2f0f5, #c8e2ed);
+            border-radius: 40px 40px 20px 20px;
+            padding: 3rem 2rem 2.5rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0, 60, 70, 0.08);
+            margin-bottom: 2.5rem;
+            border-bottom: 4px solid #8abbc9;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #13505e;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #2a5f6e;
+            background: rgba(255,255,255,0.5);
+            display: inline-block;
+            padding: 0.4rem 1.6rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            margin-top: 0.3rem;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 1.8rem auto 0;
+            font-size: 1.05rem;
+            color: #1b4754;
+            background: rgba(255,255,255,0.35);
+            padding: 0.8rem 1.2rem;
+            border-radius: 30px;
+        }
+
+        /* 网格卡片通用 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(40, 80, 90, 0.06);
+            border: 1px solid #dceef4;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 70, 80, 0.08);
+            border-color: #9fcbd9;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #12505e;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "✦";
+            color: #3c9db3;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2f4b56;
+        }
+
+        /* 说明区（更宽的单栏） */
+        .explain-section {
+            background: #e4f1f7;
+            border-radius: 30px;
+            padding: 2rem 2rem;
+            margin: 2.2rem 0;
+            border-left: 6px solid #5dafc2;
+        }
+
+        .explain-section h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #0e4957;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.01em;
+        }
+
+        .explain-section p {
+            margin-bottom: 1.2rem;
+            max-width: 700px;
+        }
+
+        .explain-section .sentence-link {
+            background: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.6rem 0 2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            color: #12505e;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dashed #b3d5e1;
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 1rem 1.8rem;
+            margin-bottom: 0.8rem;
+            border: 1px solid #d4e6ed;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1b5b6b;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item span {
+            color: #2f5c68;
+            font-size: 0.95rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            background: #d9eaf2;
+            border-radius: 40px 40px 20px 20px;
+            padding: 2rem 2rem 1.8rem;
+            margin-top: 2.8rem;
+            text-align: center;
+            border-top: 4px solid #9dc6d4;
+        }
+
+        .footer-links a {
+            color: #0e4b59;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #7bb6c7;
+            padding-bottom: 0.2rem;
+        }
+
+        .footer-links a:hover {
+            color: #063946;
+            border-bottom-color: #1d697c;
+        }
+
+        .footer-links p {
+            margin: 0.6rem 0;
+            font-size: 0.95rem;
+            color: #2e5d6b;
+        }
+
+        .footer-links .credit {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #4f7f8d;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem 1.8rem;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .card {
+                padding: 1.3rem 1.2rem;
+            }
+            .explain-section {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-item {
+                padding: 0.9rem 1.2rem;
+            }
+            .footer-links {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Hero 区 -->
+        <header class="hero">
+            <h1>赏金女王</h1>
+            <div class="tagline">日常查询 · 对照 · 延伸阅读</div>
+            <p>一份安静的聚合索引，适合在浏览间隙放慢节奏，随手查阅、比对与延伸。</p>
+        </header>
+
+        <!-- 优势区 —— 网格卡片 -->
+        <section class="grid-cards">
+            <div class="card">
+                <h3>查询骨架</h3>
+                <p>分类清晰，条目之间留有余地。不堆砌，不催促，每个区块都经过梳理，方便你快速定位感兴趣的部分。</p>
+            </div>
+            <div class="card">
+                <h3>对照视角</h3>
+                <p>并列展示不同维度下的描述与说明，让概念、场景与细节自然形成对照，适合慢慢对比与理解。</p>
+            </div>
+            <div class="card">
+                <h3>延伸线索</h3>
+                <p>在常见问题与边栏中埋入轻量的阅读延伸点，不打断当前浏览，却为下一次查询留了路标。</p>
+            </div>
+        </section>
+
+        <!-- 说明区：从日常查询、对照和延伸阅读的角度展开 -->
+        <section class="explain-section">
+            <h2>从查询到对照，再走向延伸</h2>
+            <p>
+                大多数时候，我们打开一个页面只是为了确认一个名称、一段描述或一条线索。<strong>赏金女王</strong> 的设计思路是：让查找变得轻快，同时保留“停下来对比一下”的余地。你可以在同一次浏览中，并排阅读不同侧重的说明，而不必在标签页之间反复切换。
+            </p>
+            <p>
+                比如，当你需要确认某个功能点的背景或使用场景时，卡片区给出了并列的三种视角（查询、对照、延伸），而下面的 FAQ 摘要则收集了那些常被问起、却不容易一句话说完的细节。每一个条目都刻意写得克制，不做过多的渲染，留给你自己去判断和连接。
+            </p>
+            <p>
+                如果你希望直接访问完整的内容库，可以前往 <span class="sentence-link"><a href="https://queen-ofbounty.com">赏金女王</a></span> 的主页。那里保留了更系统的分类与更新，适合需要深度检索或持续跟进的时候打开。
+            </p>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section class="faq-summary">
+            <h2>FAQ 摘要</h2>
+            <div class="faq-item">
+                <strong>这个索引的更新频率如何？</strong>
+                <span>大约每两周补充一次新条目，同时修正过时的对照信息。页面底端会标注最近一次调整的时间范围。</span>
+            </div>
+            <div class="faq-item">
+                <strong>为什么有些条目没有详细展开？</strong>
+                <span>刻意保留简略。主要目的是提供查询与对照的起点，而非百科全书式的覆盖。你可以顺着已有的线索自行扩展阅读。</span>
+            </div>
+            <div class="faq-item">
+                <strong>移动端浏览体验怎么样？</strong>
+                <span>卡片和问答段落在手机上都做了适配，字体和间距保持舒适。单手滑动就可以完成大部分浏览，不需要频繁缩放。</span>
+            </div>
+            <div class="faq-item">
+                <strong>我可以贡献对照内容或建议吗？</strong>
+                <span>目前以维护者整理为主。如果你有可靠的对照来源或补充方向，可以通过主站的联系方式告知，会酌情并入后续版本。</span>
+            </div>
+        </section>
+
+        <!-- 底部链接 -->
+        <footer class="footer-links">
+            <p>日常查询与延伸阅读的起点 —— <a href="https://queen-ofbounty.com">赏金女王</a></p>
+            <p style="margin-top: 0.8rem;">页面结构：落地页式 · 蓝绿点缀 · 网格卡片 · 移动端友好</p>
+            <div class="credit">
+                <span>内容保持克制叙述，不夸大，不诱导。仅供信息参考。</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
